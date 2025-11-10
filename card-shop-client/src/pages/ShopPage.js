@@ -1,5 +1,5 @@
 import React from "react";
-import products from "../data/products";
+import product from "../data/product";
 
 function ShopPage() {
   return (
@@ -7,7 +7,7 @@ function ShopPage() {
       <h1>Shop</h1>
 
       <ul>
-        {products.map((item) => (
+        {product.map((item) => (
           <li key={item.id}>
             {item.name} - ${item.price} ({item.game})
           </li>
