@@ -1,63 +1,124 @@
+/* Container */
 .cart-container {
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   text-align: center;
-  padding: 2rem;
 }
 
-.empty-text {
-  margin-top: 1rem;
-  opacity: 0.7;
-  font-size: 18px;
+.cart-container h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
 }
 
+/* Cart Item Layout */
 .cart-list {
   list-style: none;
   padding: 0;
-  margin-top: 2rem;
+  margin: 0;
 }
 
 .cart-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem 0;
+  gap: 1.5rem;
 }
 
+/* Product Image */
 .cart-img {
-  width: 80px;
+  width: 110px;
+  height: auto;
   border-radius: 6px;
+  flex-shrink: 0;
 }
 
-.cart-details h3 {
+/* Product Info Section */
+.cart-info {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.cart-info h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.25rem;
 }
 
-.cart-details p {
-  margin-top: 5px;
-  opacity: 0.8;
+.cart-info p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
 }
 
-.remove-btn,
-.clear-btn {
-  background: #e74c3c;
-  color: white;
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.quantity-controls button {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.quantity-controls span {
+  min-width: 24px;
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Remove Button */
+.remove-btn {
+  background-color: #ff7b7b;
   border: none;
-  padding: 8px 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: #ff5252;
+}
+
+/* Total Display */
+.total {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: right;
+  margin-top: 2rem;
+}
+
+/* Clear Cart Button */
+.clear-btn {
+  margin-top: 1rem;
+  background-color: #ff7b7b;
+  border: none;
+  padding: 0.6rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
+  color: white;
+  transition: background 0.2s;
 }
 
-.remove-btn:hover,
 .clear-btn:hover {
-  background: #c0392b;
-}
-
-.total {
-  margin-top: 2rem;
-  font-size: 22px;
-  font-weight: bold;
+  background-color: #ff5252;
 }

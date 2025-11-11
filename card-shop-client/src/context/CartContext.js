@@ -35,6 +35,26 @@ useEffect(() => {
   function removeFromCart(index) {
     setCart((prevCart) => prevCart.filter((_, i) => i !== index));
   }
+  function increaseQuantity(id) {
+  setCart((prevCart) =>
+    prevCart.map((item) =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    )
+  );
+}
+
+function decreaseQuantity(id) {
+  setCart((prevCart) =>
+    prevCart
+      .map((item) =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter((item) => item.quantity > 0)
+  );
+}
+
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     function clearCart() {
@@ -42,7 +62,7 @@ useEffect(() => {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, total, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, total, clearCart,increaseQuantity,decreaseQuantity }}>
       {children}
     </CartContext.Provider>
   );

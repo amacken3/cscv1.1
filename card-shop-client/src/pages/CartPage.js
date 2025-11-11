@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import "../styles/cart.css";
 
 function CartPage() {
-  const { cart, removeFromCart, clearCart, total } = useContext(CartContext);
+  const { cart, removeFromCart, clearCart, total, increaseQuantity, decreaseQuantity } = useContext(CartContext);
 
   if (cart.length === 0) {
     return (
@@ -20,19 +20,29 @@ function CartPage() {
 
       <ul className="cart-list">
         {cart.map((item, index) => (
-          <li key={index} className="cart-item">
-            <img src={item.image} alt={item.name} className="cart-img" />
+  <li key={index} className="cart-item">
+  <img src={item.image} alt={item.name} className="cart-img" />
 
-            <div className="cart-details">
-              <h3>{item.name}</h3>
-              <p>${item.price} × {item.quantity}</p>
-            </div>
+  <div className="cart-info">
+    <h3>{item.name}</h3>
+    <p>${item.price}</p>
 
-            <button className="remove-btn" onClick={() => removeFromCart(index)}>
-              Remove
-            </button>
-          </li>
-        ))}
+    <div className="quantity-controls">
+      <button onClick={() => decreaseQuantity(index)}>-</button>
+      <span>{item.quantity}</span>
+      <button onClick={() => increaseQuantity(index)}>+</button>
+    </div>
+  </div>
+
+  <button className="remove-btn" onClick={() => removeFromCart(index)}>
+    Remove
+  </button>
+</li>
+
+
+
+))}
+
       </ul>
 
       <h2 className="total">Total: ${total.toFixed(2)}</h2>
