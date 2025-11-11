@@ -1,0 +1,23 @@
+/* Grid container */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Each card */
+.product-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* allows us to push button to bottom */
+  justify-content: space-between;
+  min-height: 250px; /* ensures equal height */
+}
+
+/* Ensures the button stays at bottom */
+.product-card button {
+  margin-top: auto;
+}
+

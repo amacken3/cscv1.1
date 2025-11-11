@@ -1,24 +1,20 @@
 import React, { useContext } from "react";
 import products from "../data/product";
 import { CartContext } from "../context/CartContext";
+import ProductCard from "../components/ProductCard";   
+import "../styles/shop.css";
 
 function ShopPage() {
-  const { cart, addToCart } = useContext(CartContext);
-
-  console.log(cart); // <-- This is in the right spot now
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div>
       <h1>Shop</h1>
-
-      <ul>
+      <div className="shop-grid">
         {products.map((item) => (
-          <li key={item.id}>
-            {item.name} - ${item.price} ({item.game})
-            <button onClick={() => addToCart(item)}>Add to Cart</button>
-          </li>
+          <ProductCard key={item.id} item={item} addToCart={addToCart} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
