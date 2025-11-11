@@ -36,8 +36,13 @@ useEffect(() => {
     setCart((prevCart) => prevCart.filter((_, i) => i !== index));
   }
 
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    function clearCart() {
+    setCart([]);
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, total, clearCart }}>
       {children}
     </CartContext.Provider>
   );

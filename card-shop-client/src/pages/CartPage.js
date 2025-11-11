@@ -1,32 +1,46 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import "../styles/cart.css";
 
 function CartPage() {
-  const { cart, removeFromCart } = useContext(CartContext);
-  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { cart, removeFromCart, clearCart, total } = useContext(CartContext);
 
+  if (cart.length === 0) {
+    return (
+      <div className="cart-container">
+        <h1>Your Cart</h1>
+        <p className="empty-text">Your cart is empty.</p>
+      </div>
+    );
+  }
 
   return (
-    <div>
+    <div className="cart-container">
       <h1>Your Cart</h1>
 
-      {cart.length === 0 ? (
-        <p>Cart is empty.</p>
-      ) : (
-        <ul>
-            <p><strong>Total: ${totalPrice.toFixed(2)}</strong></p>
-                {cart.map((item, index) => (
-                    <li key={index}>
-                        {item.name} - ${item.price} ({item.game}) — Qty: {item.quantity}
-                        <button onClick={() => removeFromCart(index)}>Remove</button>
-                    </li>
-                    ))}
-        </ul>
+      <ul className="cart-list">
+        {cart.map((item, index) => (
+          <li key={index} className="cart-item">
+            <img src={item.image} alt={item.name} className="cart-img" />
 
+            <div className="cart-details">
+              <h3>{item.name}</h3>
+              <p>${item.price} × {item.quantity}</p>
+            </div>
 
-      )}
+            <button className="remove-btn" onClick={() => removeFromCart(index)}>
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="total">Total: ${total.toFixed(2)}</h2>
+
+      <button className="clear-btn" onClick={clearCart}>Clear Cart</button>
     </div>
   );
 }
 
 export default CartPage;
+
