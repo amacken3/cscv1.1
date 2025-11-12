@@ -48,7 +48,7 @@ function decreaseQuantity(id) {
     prevCart
       .map((item) =>
         item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
+          ? { ...item, quantity: (item.quantity - 1,1) }
           : item
       )
       .filter((item) => item.quantity > 0)
@@ -62,7 +62,7 @@ function decreaseQuantity(id) {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, total, clearCart,increaseQuantity,decreaseQuantity }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, total, clearCart,increaseQuantity,decreaseQuantity, }}>
       {children}
     </CartContext.Provider>
   );
