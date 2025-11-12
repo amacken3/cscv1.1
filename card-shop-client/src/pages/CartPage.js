@@ -28,10 +28,15 @@ function CartPage() {
     <p>${item.price}</p>
 
     <div className="quantity-controls">
-      <button onClick={() => decreaseQuantity(item.id)}>-</button>
-      <span>{item.quantity}</span>
-      <button onClick={() => increaseQuantity(item.id)}>+</button>
-    </div>
+  <button
+    onClick={() => decreaseQuantity(item.id)}
+    disabled={item.quantity <= 1}
+  >
+    –
+  </button>
+  <span>{item.quantity}</span>
+  <button onClick={() => increaseQuantity(item.id)}>+</button>
+</div>
   </div>
 
   <button className="remove-btn" onClick={() => removeFromCart(item.id)}>

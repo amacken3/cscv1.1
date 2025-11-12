@@ -32,8 +32,8 @@ useEffect(() => {
 }
 
 
-  function removeFromCart(index) {
-    setCart((prevCart) => prevCart.filter((_, i) => i !== index));
+  function removeFromCart(id) {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   }
   function increaseQuantity(id) {
   setCart((prevCart) =>
@@ -48,7 +48,7 @@ function decreaseQuantity(id) {
     prevCart
       .map((item) =>
         item.id === id && item.quantity > 1
-          ? { ...item, quantity: (item.quantity - 1,1) }
+          ? { ...item, quantity:Math.max (item.quantity - 1,1) }
           : item
       )
       .filter((item) => item.quantity > 0)
