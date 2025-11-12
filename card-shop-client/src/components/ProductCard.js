@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import "../styles/shop.css";
 
 function ProductCard({ item }) {
   const { addToCart } = useContext(CartContext);
@@ -7,12 +8,12 @@ function ProductCard({ item }) {
   return (
     <div className="product-card">
       <img src={item.image} alt={item.name} className="product-image" />
-
-      <h3>{item.name}</h3>
-      <p className="price">${item.price}</p>
-      <p className="game">{item.game}</p>
-
-      <button onClick={() => addToCart(item)} className="add-btn">
+      <div className="product-info">
+        <h3 className="product-name">{item.name}</h3>
+        <p className="product-price">${item.price.toFixed(2)}</p>
+        <p className="product-game">{item.game}</p>
+      </div>
+      <button className="add-btn" onClick={() => addToCart(item)}>
         Add to Cart
       </button>
     </div>
@@ -20,6 +21,8 @@ function ProductCard({ item }) {
 }
 
 export default ProductCard;
+
+
 
 
 
