@@ -21,7 +21,7 @@ function Navbar() {
             {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
           </Link>
         </li>
-        <li><Link to="/checkout">Checkout</Link></li>
+       
       </ul>
     </nav>
   );

@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 import "../styles/cart.css";
 
 function CartPage() {
-  const { cart, removeFromCart, clearCart, total, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+  const { cart, removeFromCart, clearCart, total, increaseQuantity, decreaseQuantity } =
+    useContext(CartContext);
+
+  const navigate = useNavigate();
 
   if (cart.length === 0) {
     return (
@@ -20,42 +24,46 @@ function CartPage() {
 
       <ul className="cart-list">
         {cart.map((item, index) => (
-  <li key={index} className="cart-item">
-  <img src={item.image} alt={item.name} className="cart-img" />
+          <li key={index} className="cart-item">
+            <img src={item.image} alt={item.name} className="cart-img" />
 
-  <div className="cart-info">
-    <h3>{item.name}</h3>
-    <p>${item.price}</p>
+            <div className="cart-info">
+              <h3>{item.name}</h3>
+              <p>${item.price}</p>
 
-    <div className="quantity-controls">
-  <button
-    onClick={() => decreaseQuantity(item.id)}
-    disabled={item.quantity <= 1}
-  >
-    –
-  </button>
-  <span>{item.quantity}</span>
-  <button onClick={() => increaseQuantity(item.id)}>+</button>
-</div>
-  </div>
+              <div className="quantity-controls">
+                <button
+                  onClick={() => decreaseQuantity(item.id)}
+                  disabled={item.quantity <= 1}
+                >
+                  –
+                </button>
+                <span>{item.quantity}</span>
+                <button onClick={() => increaseQuantity(item.id)}>+</button>
+              </div>
+            </div>
 
-  <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
-    Remove
-  </button>
-</li>
-
-
-
-))}
-
+            <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
+              Remove
+            </button>
+          </li>
+        ))}
       </ul>
 
       <h2 className="total">Total: ${total.toFixed(2)}</h2>
 
-      <button className="clear-btn" onClick={clearCart}>Clear Cart</button>
+      {/* --- Cart Buttons Wrapper --- */}
+      <div className="cart-buttons">
+        <button className="clear-btn" onClick={clearCart}>
+          Clear Cart
+        </button>
+
+        <button className="checkout-btn" onClick={() => navigate("/checkout")}>
+          Proceed to Checkout
+        </button>
+      </div>
     </div>
   );
 }
 
 export default CartPage;
-

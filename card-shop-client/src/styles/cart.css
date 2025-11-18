@@ -130,3 +130,24 @@
   transform: scale(0.9);
   background: #f2f2f2;
 }
+.cart-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.checkout-btn {
+  background-color: #1908b6d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #0f068a;
+}
