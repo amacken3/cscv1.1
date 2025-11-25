@@ -151,3 +151,11 @@
 .checkout-btn:hover {
   background-color: #0f068a;
 }
+
+.cart-buttons {
+  display: flex;
+  flex-direction: column;   /* stack buttons vertically */
+  align-items: center;       /* center horizontally */
+  gap: 1rem;                 /* spacing between buttons */
+  margin-top: 1.5rem;
+}

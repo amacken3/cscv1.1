@@ -8,10 +8,12 @@ function ShopPage() {
   const { addToCart } = useContext(CartContext);
 
   return (
+    <div className="page">
     <div className="shop-grid">
       {products.map((item) => (
         <ProductCard key={item.id} item={item} addToCart={addToCart} />
       ))}
+    </div>
     </div>
   );
 }

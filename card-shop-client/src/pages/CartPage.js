@@ -4,14 +4,20 @@ import { useNavigate } from "react-router-dom";
 import "../styles/cart.css";
 
 function CartPage() {
-  const { cart, removeFromCart, clearCart, total, increaseQuantity, decreaseQuantity } =
-    useContext(CartContext);
+  const { 
+    cart, 
+    removeFromCart, 
+    clearCart, 
+    total, 
+    increaseQuantity, 
+    decreaseQuantity 
+  } = useContext(CartContext);
 
   const navigate = useNavigate();
 
   if (cart.length === 0) {
     return (
-      <div className="cart-container">
+      <div className="page cart-container">
         <h1>Your Cart</h1>
         <p className="empty-text">Your cart is empty.</p>
       </div>
@@ -25,6 +31,7 @@ function CartPage() {
       <ul className="cart-list">
         {cart.map((item, index) => (
           <li key={index} className="cart-item">
+            
             <img src={item.image} alt={item.name} className="cart-img" />
 
             <div className="cart-info">
@@ -38,12 +45,19 @@ function CartPage() {
                 >
                   –
                 </button>
+
                 <span>{item.quantity}</span>
-                <button onClick={() => increaseQuantity(item.id)}>+</button>
+
+                <button onClick={() => increaseQuantity(item.id)}>
+                  +
+                </button>
               </div>
             </div>
 
-            <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
+            <button 
+              className="remove-btn" 
+              onClick={() => removeFromCart(item.id)}
+            >
               Remove
             </button>
           </li>
@@ -52,16 +66,17 @@ function CartPage() {
 
       <h2 className="total">Total: ${total.toFixed(2)}</h2>
 
-      {/* --- Cart Buttons Wrapper --- */}
       <div className="cart-buttons">
-        <button className="clear-btn" onClick={clearCart}>
-          Clear Cart
-        </button>
+  <button className="checkout-btn" onClick={() => navigate("/checkout")}>
+  Proceed to Checkout
+</button>
 
-        <button className="checkout-btn" onClick={() => navigate("/checkout")}>
-          Proceed to Checkout
-        </button>
-      </div>
+
+  <button className="clear-btn" onClick={clearCart}>
+    Clear Cart
+  </button>
+</div>
+
     </div>
   );
 }

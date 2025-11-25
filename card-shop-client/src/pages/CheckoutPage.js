@@ -32,7 +32,7 @@ function CheckoutPage() {
   if (isSuccess) {
     return (
       <div className="checkout-container success-box">
-        <h1>🎉 Order Successful!</h1>
+        <h1>Order Successful!</h1>
         <p>Your payment has been processed.</p>
         <p>Thank you for your purchase!</p>
       </div>

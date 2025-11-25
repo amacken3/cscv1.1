@@ -1,54 +1,65 @@
-/* --- Payment Form --- */
-.payment-form {
-  margin-top: 2rem;
+.checkout-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.payment-form h2 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: 600;
+.checkout-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.payment-form input {
+.checkout-input {
   width: 100%;
-  padding: 0.7rem;
-  margin-bottom: 1rem;
+  padding: 0.75rem;
+  margin: 0.6rem 0;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
 }
 
-.payment-row {
+.row {
   display: flex;
   gap: 1rem;
 }
 
-/* Processing state */
-.checkout-button:disabled {
-  background: #888;
-  cursor: not-allowed;
+.small {
+  flex: 1;
 }
 
-/* --- Success Message --- */
-.success-box {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.4s ease;
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
 }
 
-.success-box h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.checkout-button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: black;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
 }
 
-.success-box p {
-  font-size: 1.2rem;
-  color: #444;
+.checkout-button:hover {
+  opacity: 0.8;
+}
+
+.success {
+  padding-top: 3rem;
+}
+
+.tracking-number {
+  background: #f4f4f4;
+  padding: 1rem;
+  display: inline-block;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-family: monospace;
 }
 
 
