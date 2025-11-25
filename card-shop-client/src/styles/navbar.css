@@ -1,43 +1,65 @@
+/* --- Navbar Container --- */
 .navbar {
+  width: 100%;
+  background: #ffffff;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid #eee;
-  padding: 0.85rem 1.25rem;
 }
 
+/* --- Nav Items Row --- */
 .nav-list {
-  list-style: none;
   display: flex;
-  gap: 1.25rem;
+  gap: 2rem;
+  list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
+/* --- Nav Links --- */
 .nav-list a {
   text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: #222;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.nav-list a:hover {
+  color: #4c46ff;
+  transform: translateY(-1px);
+}
+
+/* --- Cart Badge (item count) --- */
+.cart-badge {
+  background-color: #4c46ff;
+  color: white;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-left: 0.4rem;
   font-weight: 600;
 }
 
-.nav-cart {
-  position: relative;
+/* --- Smooth fade-in animation --- */
+.navbar {
+  opacity: 0;
+  animation: navbarFadeIn 0.35s ease-out forwards;
 }
 
-.cart-badge {
-  margin-left: 8px;
-  display: inline-flex;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: #ff5a5f;
-  color: #fff;
-  font-size: 12px;
-  line-height: 20px;
-  vertical-align: middle;
+@keyframes navbarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
